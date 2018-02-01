@@ -49,15 +49,15 @@ if($query->getElement('success', $query->connect()))
 
     		$channelDesc = "";
     		if(!empty($channelInfo['channel_topic']))
-    			$channelDesc = " <span class=\"smalltext\" style=\"color: grey;\">(".$channelInfo['channel_topic'].")</span>";
+    			$channelDesc = " <span class=\"smalltext\" style=\"color: grey;\">(".htmlspecialchars($channelInfo['channel_topic']).")</span>";
 
-    		$client_channel = "<img src=\"inc/plugins/ts3func/images/".$channelIcon.".png\">".$channelInfo['channel_name'].$channelDesc;
+    		$client_channel = "<img src=\"inc/plugins/ts3func/images/".$channelIcon.".png\">".htmlspecialchars($channelInfo['channel_name']).$channelDesc;
 
     		$userlist .= '
 
     		<tr>
 				<td class="trow1">
-					<strong><em>'.$info['client_nickname'].'</em></strong></span>
+					<strong><em>'.htmlspecialchars($info['client_nickname']).'</em></strong></span>
 				</td>
 				<td align="center" class="trow1">
 					'.$client_connectiontime.' '.$lang->ts3func_minutes.'

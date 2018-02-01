@@ -327,12 +327,12 @@ function ts3func_online()
     		{
     			if($first == false)
     			{
-	    			$uzytkownicy .= ', '.$client['client_nickname'];
+	    			$uzytkownicy .= ', '.htmlspecialchars($client['client_nickname']);
 	    			$first = false;
 	    		}
 	    		else
 	    		{
-	    			$uzytkownicy .= $client['client_nickname'];
+	    			$uzytkownicy .= htmlspecialchars($client['client_nickname']);
 	    			$first = false;
 	    		}
 	    		$ts3func_usersonline_users = $uzytkownicy;
@@ -413,9 +413,9 @@ function ts3func_profile()
 
     		$channelDesc = "";
     		if(!empty($channelInfo['data']['channel_topic']))
-    			$channelDesc = " <span class=\"smalltext\" style=\"color: grey;\">(".$channelInfo['data']['channel_topic'].")</span>";
+    			$channelDesc = " <span class=\"smalltext\" style=\"color: grey;\">(".htmlspecialchars($channelInfo['data']['channel_topic']).")</span>";
     		
-    		$client_channel = "<img src=\"inc/plugins/ts3func/images/".$channelIcon.".png\">".$channelInfo['data']['channel_name'].$channelDesc;
+    		$client_channel = "<img src=\"inc/plugins/ts3func/images/".$channelIcon.".png\">".htmlspecialchars($channelInfo['data']['channel_name']).$channelDesc;
 
     		$client_firstconnect = date('Y-m-d H:i', $profileInfo['data']['client_created']);
     		$client_lastconnect = date('Y-m-d H:i', $profileInfo['data']['client_lastconnected']);
